@@ -1,0 +1,43 @@
+=============== ACESSO ===============
+IP real: 177.181.168.40
+País (Cloudflare): BR
+
+--- HEADERS DO NAVEGADOR ---
+User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+Idioma: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip
+Referer: Nenhum
+
+--- HEADERS DE SEGURANÇA / CLIENT HINTS ---
+Sec-CH-UA: "Google Chrome";v="143", "Chromium";v="143", "Not A(Brand";v="24"
+Sec-CH-UA-Platform: "Android"
+Sec-CH-UA-Mobile: ?0
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Dest: document
+
+=======================================
+
+=============== ACESSO ===============
+IP real: 2804:6a84:1056:4600:40e5:97cc:ed2e:1e64
+País (Cloudflare): BR
+
+--- HEADERS DO NAVEGADOR ---
+User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Mobile Safari/537.36
+Idioma: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip
+Referer: Nenhum
+
+--- HEADERS DE SEGURANÇA / CLIENT HINTS ---
+Sec-CH-UA: "Google Chrome";v="143", "Chromium";v="143", "Not A(Brand";v="24"
+Sec-CH-UA-Platform: "Android"
+Sec-CH-UA-Mobile: ?1
+Sec-Fetch-Site: cross-site
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Dest: document
+
+=======================================
+
+COLOQUE MAIS AQUI CASO TENHA
