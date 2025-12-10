@@ -1,0 +1,85 @@
+RedWorm exploits
+
+1-Ficar em restreavel
+
+2-listar banco de dados (clientes hackados)
+
+3-listar codigo de RAMSOMWARE
+
+4-listar codigo de spyware (ta no RAMSOMWARE)
+
+5-listar codigo de exploits remotos (teste)
+
+RedWorm Attcaks
+
+6- Ativar mode monitor
+
+7-listar bssid
+
+8-ddos attack
+
+9-dos attack (nao pega)
+
+10-dns spoof (Computadores fracos! root!!)
+
+RedWorm OSINT
+
+11-scanear ip (root)
+
+12-TESTE NAO USE
+
+13-TESTE NAO USE
+
+14-0 Osint
+
+15- sherlook
+
+RedWorm Monitoramneto
+
+16- abrir ettercap
+
+17- abrir wireshark
+
+Digite o Numero da funcao:executando 1...
+
+torexecutando 2...
+
+cat bancoexecutando 3...
+
+#include <windows.h>
+
+#include <string>
+
+int main() {
+
+// Caminho da imagem que será usada como wallpaper
+
+const char* caminholmagem = "C:\Users\Public\Pictures\wallpaper.jpg"; // Coloque sua imagem aqui
+
+// Mudar o wallpaper
+
+System ParametersInfoA(SPI_SETDESKWALLPAPER, 0, (PVOID)caminholmagem, SPIF_UPDATEINIFILE |
+
+SPIF_SENDCHANGE);
+
+// Esconder os ícones da área de trabalho
+
+HWND hProgman = FindWindow("Progman", NULL); ShowWindow(hProgman, SW_HIDE);
+
+// Esconder barra de tarefas
+
+HWND hTaskbar = FindWindow("Shell_TrayWnd", NULL); ShowWindow(hTaskbar, SW_HIDE);
+
+// Manter o programa rodando para que não volte ao normal MessageBox(NULL, "Plano de fundo alterado e área de trabalho oculta!", "Aviso", MB_OK);
+
+// Restaurar área de trabalho e barra ao fechar a mensagem
+
+ShowWindow(hProgman, SW_SHOW); ShowWindow(hTaskbar, SW_SHOW);
+
+return 0;
+
+executando 4...
+
+cat spexecutando 5...
+
+cat exploitsexecutando 6...
