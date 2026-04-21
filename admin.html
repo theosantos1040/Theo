@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ASO Shield Admin</title>
+  <link rel="stylesheet" href="/assets/site.css">
+</head>
+<body class="admin-page">
+  <div class="admin-wrap">
+    <div class="row">
+      <div class="panel">
+        <div class="logo" style="margin-bottom:18px;">
+          <img src="/assets/aso-logo.png" alt="ASO Shield logo">
+          <span>ASO Shield Admin</span>
+        </div>
+        <div id="loginBox">
+          <label>Usuário</label>
+          <input id="username" autocomplete="username" maxlength="80" />
+          <label>Senha</label>
+          <input id="password" type="password" autocomplete="current-password" maxlength="200" />
+          <button id="loginBtn" class="btn btn-primary" style="width:100%;">Entrar</button>
+          <p id="loginMsg" class="muted"></p>
+        </div>
+        <div id="sessionBox" style="display:none;">
+          <p class="success">Sessão ativa.</p>
+          <button id="logoutBtn" class="btn btn-secondary" style="width:100%;">Sair</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2 style="margin-top:0;">Gerador de chaves</h2>
+        <p class="muted">Gera quantas chaves públicas e privadas você quiser com persistência em Netlify Blobs.</p>
+        <div id="adminArea" style="display:none;">
+          <label>Rótulo da chave</label>
+          <input id="keyLabel" maxlength="120" placeholder="Ex: Cliente Alpha / Produção">
+          <button id="generateBtn" class="btn btn-primary">Gerar nova keypair</button>
+          <p id="actionMsg" class="muted"></p>
+          <div id="keysList" class="table" style="margin-top:18px;"></div>
+        </div>
+        <div id="lockedArea">
+          <p class="muted">Faça login para acessar o console e emitir chaves.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/assets/telemetry-agent.js"></script>
+  <script src="/assets/admin.js"></script>
+</body>
+</html>

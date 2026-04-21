@@ -1,0 +1,20 @@
+/api/admin/login /.netlify/functions/admin-login 200
+/api/admin/logout /.netlify/functions/admin-logout 200
+/api/admin/session /.netlify/functions/admin-session 200
+/api/admin/keys /.netlify/functions/admin-keys 200
+/api/telemetry /.netlify/functions/telemetry 200
+/api/challenge/pow /.netlify/functions/pow-issue 200
+/api/challenge/pow/verify /.netlify/functions/pow-verify 200
+/api/decision/evaluate /.netlify/functions/decision-evaluate 200
+/api/preclearance/issue /.netlify/functions/preclearance-issue 200
+/api/user/signup /.netlify/functions/user-signup 200
+/api/user/login /.netlify/functions/user-login 200
+/api/user/session /.netlify/functions/user-session 200
+/api/user/logout /.netlify/functions/user-logout 200
+/api/user/keys /.netlify/functions/user-keys 200
+
+/api/client/start /.netlify/functions/client-start 200
+/api/protect/verify /.netlify/functions/protect-verify 200
+
+/api/challenge/mouse /.netlify/functions/mouse-challenge-issue 200
+/api/challenge/mouse/verify /.netlify/functions/mouse-challenge-verify 200
