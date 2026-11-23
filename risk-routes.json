@@ -1,0 +1,7 @@
+{
+  "/": { "telemetryWeight": 0.15, "powWeight": 0.05, "challengeThreshold": 0.82 },
+  "/login": { "telemetryWeight": 0.30, "powWeight": 0.10, "challengeThreshold": 0.62 },
+  "/signup": { "telemetryWeight": 0.35, "powWeight": 0.15, "challengeThreshold": 0.58 },
+  "/checkout": { "telemetryWeight": 0.40, "powWeight": 0.10, "challengeThreshold": 0.55 },
+  "/api/admin/login": { "telemetryWeight": 0.45, "powWeight": 0.20, "challengeThreshold": 0.50 }
+}
